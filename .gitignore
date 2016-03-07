@@ -1,0 +1,6 @@
+*.pyc
+*.swp
+uniclass.h
+letter
+.ninja*
+*.o

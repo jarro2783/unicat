@@ -1,0 +1,43 @@
+#ifndef UNICLASS_H_INCLUDED
+#define UNICLASS_H_INCLUDED
+#include <utility>
+
+namespace uniclass
+{
+    namespace categories
+    {
+        {%for cat in categories%}
+        std::pair<int, int> {{cat.name}}[] = {
+            {%for r in cat.ranges%}
+            { {{r.begin}}, {{r.end}} },
+            {%endfor%}
+        };
+        {%endfor%}
+    }
+
+    class InRange
+    {
+        public:
+        bool
+        operator()(char32_t c, const std::pair<int, int>& r)
+        {
+            return c < r.first;
+        }
+
+        bool
+        operator()(const std::pair<int, int>& r, char32_t c)
+        {
+            return c > r.second;
+        }
+    };
+
+
+    template <size_t N>
+    bool
+    is(char32_t c, std::pair<int, int> const (&cat)[N])
+    {
+        return std::binary_search(cat, cat + N, c, InRange());
+    }
+}
+
+#endif

@@ -1,0 +1,14 @@
+rule runpy
+    command = ./maketables.py
+ 
+rule cxx
+    command = g++ $in -c -o $out -std=c++14
+
+rule cxx_link
+    command = g++ $in -o $out
+
+build uniclass.h: runpy | maketables.py templates/cxx
+
+build letter.o: cxx letter.cpp
+
+build letter: cxx_link letter.o
