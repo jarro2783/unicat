@@ -4,3 +4,4 @@ uniclass.h
 letter
 .ninja*
 *.o
+*.d

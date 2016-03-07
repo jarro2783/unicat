@@ -6,13 +6,14 @@ namespace uniclass
 {
     namespace categories
     {
-        {%for cat in categories%}
+@       for cat in categories
         std::pair<int, int> {{cat.name}}[] = {
-            {%for r in cat.ranges%}
+@           for r in cat.ranges
             { {{r.begin}}, {{r.end}} },
-            {%endfor%}
+@           endfor
         };
-        {%endfor%}
+
+@       endfor
     }
 
     class InRange

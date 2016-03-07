@@ -130,7 +130,8 @@ def main():
 
     print("Copying to jinja variables")
 
-    env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'),
+            line_statement_prefix='@')
     writer = env.get_template('cxx')
 
     cat = []

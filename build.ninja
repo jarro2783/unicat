@@ -2,7 +2,8 @@ rule runpy
     command = ./maketables.py
  
 rule cxx
-    command = g++ $in -c -o $out -std=c++14
+    command = g++ $in -c -o $out -std=c++14 -MMD -MF $out.d
+    depfile = $out.d
 
 rule cxx_link
     command = g++ $in -o $out
