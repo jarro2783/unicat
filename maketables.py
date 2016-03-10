@@ -2,9 +2,7 @@
 
 from __future__ import print_function
 
-import numpy as np
 import sys
-#from uniclass.generators.cxx import cxx
 import jinja2
 
 class Category:
@@ -148,22 +146,10 @@ def main():
         c.ranges = ranges
         cat.append(c)
 
-    #writer = cxx()
-    #writer.categories = cat
-
     print("Generating C++")
-    out = open("uniclass.h", "w")
+    out = open("unicat.h", "w")
     out.write(writer.render(categories=cat))
 
-    #out.write("namespace uniclass {\n")
-
-    #out.write("  namespace cat {\n")
-
-    #for key in sorted(uc.categories.keys()):
-    #    write_range(uc.categories[key].ranges(), Indenter(4, out), key)
-
-    #out.write("  }\n}\n")
-    #out.close()
     print("Done")
 
 if __name__ == '__main__':

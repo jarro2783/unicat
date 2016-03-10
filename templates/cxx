@@ -27,7 +27,7 @@
 #include <algorithm>
 #include <utility>
 
-namespace uniclass
+namespace unicat
 {
     namespace categories
     {

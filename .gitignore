@@ -1,6 +1,6 @@
 *.pyc
 *.swp
-uniclass.h
+unicat.h
 letter
 .ninja*
 *.o
